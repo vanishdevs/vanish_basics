@@ -2,9 +2,9 @@ local isIdlePlaying = false
 local lastActionTime = 0
 local idleTimeout = 30000
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
-        Citizen.Wait(0)
+        Wait(0)
         local playerPed = PlayerPedId()
 
         if DoesEntityExist(playerPed) and not IsEntityDead(playerPed) then
