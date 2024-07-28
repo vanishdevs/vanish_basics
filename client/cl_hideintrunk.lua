@@ -1,6 +1,5 @@
 local inTrunk = false
 
-ESX = nil
 Citizen.CreateThread(function()
     while true do
         Wait(0)
@@ -45,7 +44,6 @@ Citizen.CreateThread(function()
 end)   
 
 Citizen.CreateThread(function()
-	while ESX == nil do TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end) Wait(0) end
     while not NetworkIsSessionStarted() or ESX.GetPlayerData().job == nil do Wait(0) end
     while true do
         local vehicle = GetClosestVehicle(GetEntityCoords(PlayerPedId()), 10.0, 0, 70)

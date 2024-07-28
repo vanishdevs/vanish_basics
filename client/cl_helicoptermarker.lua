@@ -1,7 +1,3 @@
-ESX = nil
-
-TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-
 -- Coordinates where the player can spawn
 local spawnLocation = vector3(449.2397, -981.1707, 43.6913)
 

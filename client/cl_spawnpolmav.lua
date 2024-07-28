@@ -1,7 +1,3 @@
-ESX = nil
-
-TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-
 local ambulanceSpawnLocation = vector3(352.0959, -587.9178, 74.1617) -- Replace with actual coordinates
 local policeSpawnLocation = vector3(449.2397, -981.1707, 43.6913) -- Replace with actual coordinates
 
