@@ -1,14 +1,9 @@
 fx_version 'adamant'
 game 'gta5'
-author '2zVanish'
+lua54 'yes'
 
-client_scripts {
-	'client/*.lua'
-}
-server_scripts {
-	'server/*.lua'
-}
-shared_scripts {
-	'@es_extended/imports.lua',
-	'shared/*.lua'
-}
+author 'vanishdev'
+
+client_scripts { 'client/*.lua' }
+server_scripts { 'server/*.lua' }
+shared_scripts { '@ox_lib/init.lua', 'shared/*.lua' }
