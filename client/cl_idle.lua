@@ -1,11 +1,11 @@
+local Config = lib.load('shared/sh_idle')
 local isIdlePlaying = false
 local lastActionTime = 0
 local idleTimeout = 30000
 
-CreateThread(function()
-    while true do
-        Wait(0)
-        local playerPed = PlayerPedId()
+local performIdleFunctions(EnableCustomIdle)
+    while EnableCustomIdle do
+        local playerPed = cache.ped
 
         if DoesEntityExist(playerPed) and not IsEntityDead(playerPed) then
             if IsControlPressed(0, 32) or IsControlPressed(0, 33) or IsControlPressed(0, 34) or IsControlPressed(0, 35) then
@@ -22,6 +22,9 @@ CreateThread(function()
                     end
                 end
             end
-        end
+        
+        Wait(0)
     end
-end)
+end
+
+CreateThread(performIdleFunctions(Config.EnableCustomIdle))

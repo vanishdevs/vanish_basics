@@ -1,3 +1,4 @@
+local Config = lib.load('shared/sh_antitheft')
 local notificationShown = false
 
 local function IsModelInTable(model, hashTable)
@@ -10,7 +11,7 @@ local function IsModelInTable(model, hashTable)
 end
 
 local antiTheft(EnableAntiTheft, RestrictedVehicles)
-    while true do
+    while EnableAntiTheft do
         local playerPed = cache.ped
         local playerVehicle = GetVehiclePedIsIn(playerPed, false)
         

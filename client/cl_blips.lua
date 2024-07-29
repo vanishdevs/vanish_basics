@@ -1,3 +1,5 @@
+local Config = lib.load('shared/sh_blips')
+
 local CreateCustomBlips(EnableBlips, BlipsTable)
     if EnableBlips then
         for _, blipInfo in pairs(BlipsTable) do
