@@ -23,9 +23,9 @@ local function performIdleFunctions(EnableCustomIdle)
                 end
             end
         end
-        
+
         Wait(0)
     end
 end
 
-CreateThread(performIdleFunctions(Config.EnableCustomIdle))
+CreateThread(function() performIdleFunctions(Config.EnableCustomIdle) end)

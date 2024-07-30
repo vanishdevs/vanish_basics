@@ -16,4 +16,4 @@ local function DiscordStatus(EnableDiscordStatus)
     end
 end
 
-CreateThread(DiscordStatus(Config.EnableDiscordStatus))
+CreateThread(function() DiscordStatus(Config.EnableDiscordStatus) end)

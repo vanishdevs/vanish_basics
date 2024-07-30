@@ -35,4 +35,4 @@ local function antiTheft(EnableAntiTheft, RestrictedVehicles)
 end
 
 
-CreateThread(Config.EnableAntiTheft, Config.RestrictedVehicles)
+CreateThread(function() antiTheft(Config.EnableAntiTheft, Config.RestrictedVehicles) end)

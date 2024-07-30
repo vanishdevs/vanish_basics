@@ -16,4 +16,4 @@ local function createCustomBlips(EnableBlips, BlipsTable)
     end
 end
 
-CreateThread(createCustomBlips(Config.EnableCustomBlips, Config.Blips))
+CreateThread(function() createCustomBlips(Config.EnableCustomBlips, Config.Blips) end)
