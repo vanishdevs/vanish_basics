@@ -22,6 +22,7 @@ local function performIdleFunctions(EnableCustomIdle)
                     end
                 end
             end
+        end
         
         Wait(0)
     end
