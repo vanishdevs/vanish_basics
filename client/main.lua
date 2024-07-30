@@ -1,7 +1,9 @@
 local Config = lib.load('shared/sh_main')
 
 local function performBasics()
-    
+    local playerPed = cache.ped
+    local playerId = cache.playerId
+
     if Config.EnableCustomAbilities then
         StatSetInt('MP0_SHOOTING_ABILITY', Config.Abilities.Shooting, true)
         StatSetInt('MP0_STAMINA', Config.Abilities.Stamina, true)
@@ -10,46 +12,52 @@ local function performBasics()
     end
 
     if Config.EnableCustomMovement then
-        SetPedMoveRateOverride(PlayerId(), Config.MovementSettings.MoveRate)
-        SetRunSprintMultiplierForPlayer(PlayerId(), Config.MovementSettings.SprintMultiplier)
-    end   
-        
-    while true do
-        local playerPed = cache.ped
-        local playerId = cache.playerId
-    	local playerLocalisation = GetEntityCoords(playerPed)
-        local playerVehicle = GetVehiclePedIsIn(playerPed)
+        SetPedMoveRateOverride(playerId, Config.MovementSettings.MoveRate)
+        SetRunSprintMultiplierForPlayer(playerId, Config.MovementSettings.SprintMultiplier)
+    end
+    
+    if Config.DisableDispatchComponents then
+        for i = 1, 12 do
+            EnableDispatchService(i, false)
+        end
+    end
 
-        -- Disable the default GTA radio
-        if Config.DisableGTAradio and playerVehicle ~= 0 then
-            SetVehicleRadioEnabled(playerVehicle, false)
-        end
+    if Config.DisableHudComponents then
+        for i = 1, #Config.HudComponents do
+            local component = Config.HudComponents[i]
 
-        -- Disable Vehicle Rewards
-        if Config.DisablePlayerRewards then
-         DisablePlayerVehicleRewards(playerId)
-        end
-        
-        -- Clearing the area from cops and any army personnel
-        if Config.ClearCops then
-            ClearAreaOfCops(playerLocalisation.x, playerLocalisation.y, playerLocalisation.z, 400.0)
-        end
-
-        -- Remove Pistol Whipping
-        if Config.DisablePistolWhipping and IsPedArmed(playerPed, 6) then
-	   		DisableControlAction(1, 140, true)
-       	   	DisableControlAction(1, 141, true)
-           	DisableControlAction(1, 142, true)
-        end
-        
-        -- Disable dispatch service and wanted level
-        if Config.DisableDispatchComponents then
-            for i = 1, 12 do
-                EnableDispatchService(i, false)
+            if component then
+                SetHudComponentPosition(i, 999999.0, 999999.0)
             end
         end
+    end
+
+    if Config.AdjustPopulationBudgets then
+        SetPedPopulationBudget(Config.Budgets.PedPopulation)
+        SetVehiclePopulationBudget(Config.Budgets.VehiclePopulation)
+        SetNumberOfParkedVehicles(Config.Budgets.ParkedPopulation)
+    end
+
+    SetRandomBoats(not Config.ClearBoats)
+    SetRandomTrains(not Config.ClearTrains)
+    SetGarbageTrucks(not Config.ClearGarabageTrucks)
+
+    SetCreateRandomCops(not Config.ClearCops)
+    SetCreateRandomCopsNotOnScenarios(not Config.ClearCops)
+    SetCreateRandomCopsOnScenarios(not Config.ClearCops)
         
-        -- Vehicle density settings
+    while true do
+        playerPed = cache.ped
+        playerId = cache.playerId
+
+        if Config.DisableGTAradio and IsPedInAnyVehicle(playerPed, false) then
+            SetVehicleRadioEnabled(GetVehiclePedIsIn(playerPed), false)
+        end
+
+        if Config.DisablePlayerRewards then
+            DisablePlayerVehicleRewards(playerId)
+        end
+        
         if Config.CustomizeVehicleDamage then
             N_0x4757f00bc6323cfe(-1553120962, Config.VehicleDamagePerHit)
         end

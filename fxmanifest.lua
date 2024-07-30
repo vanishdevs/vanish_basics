@@ -7,3 +7,6 @@ author 'vanishdev'
 client_scripts { 'client/*.lua' }
 server_scripts { 'server/*.lua' }
 shared_scripts { '@ox_lib/init.lua', 'shared/*.lua' }
+
+files { 'meta/weapons.meta' }
+data_file 'WEAPONINFO_FILE_PATCH' 'meta/weapons.meta'
