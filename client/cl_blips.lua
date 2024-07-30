@@ -1,11 +1,11 @@
 local Config = lib.load('shared/sh_blips')
 
-local CreateCustomBlips(EnableBlips, BlipsTable)
+local function createCustomBlips(EnableBlips, BlipsTable)
     if EnableBlips then
         for _, blipInfo in pairs(BlipsTable) do
             blipInfo.blip = AddBlipForCoord(blipInfo.coords.x, blipInfo.coords.y, blipInfo.coords.z)
             SetBlipSprite(blipInfo.blip, blipInfo.id)
-            SetBlipDisplay(blipInfo.blip, 4)
+            SetBlipDisplay(blipInfo.blip, 4) 
             SetBlipScale(blipInfo.blip, blipInfo.scale)
             SetBlipColour(blipInfo.blip, blipInfo.colour)
             SetBlipAsShortRange(blipInfo.blip, true)
@@ -16,4 +16,4 @@ local CreateCustomBlips(EnableBlips, BlipsTable)
     end
 end
 
-CreateThread(CreateCustomBlips(Config.EnableCustomBlips, Config.Blips))
+CreateThread(createCustomBlips(Config.EnableCustomBlips, Config.Blips))
