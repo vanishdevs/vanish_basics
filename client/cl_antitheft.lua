@@ -22,7 +22,7 @@ local function antiTheft(EnableAntiTheft, RestrictedVehicles)
             
             if IsModelInTable(vehicleModel, RestrictedVehicles) and driverSeat == playerPed then
                 if not notificationShown then
-                    -- TODO: Show a notification here // Create a function to trigger one
+                    ShowNotification('You are not allowed to be seated in this vehicle')
                     notificationShown = true
                 end
                 TaskLeaveVehicle(playerPed, playerVehicle, 0)
