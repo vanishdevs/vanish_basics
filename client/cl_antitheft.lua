@@ -10,7 +10,7 @@ local function IsModelInTable(model, hashTable)
     return false
 end
 
-local antiTheft(EnableAntiTheft, RestrictedVehicles)
+local function antiTheft(EnableAntiTheft, RestrictedVehicles)
     while EnableAntiTheft do
         local playerPed = cache.ped
         local playerVehicle = GetVehiclePedIsIn(playerPed, false)
