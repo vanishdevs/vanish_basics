@@ -19,7 +19,7 @@ local function antiTheft(EnableAntiTheft, RestrictedVehicles)
             local driverSeat = GetPedInVehicleSeat(playerVehicle, -1)
             local vehicleModel = GetEntityModel(playerVehicle)
             
-            if IsModelInTable(vehicleModel, restrictedVehicles) and driverSeat == playerPed then
+            if IsModelInTable(vehicleModel, RestrictedVehicles) and driverSeat == playerPed then
                 if not notificationShown then
                     -- TODO: Show a notification here // Create a function to trigger one
                     notificationShown = true
