@@ -1,4 +1,5 @@
 local Config = lib.load('shared/sh_antitheft')
+
 local notificationShown = false
 
 local function IsModelInTable(model, hashTable)
