@@ -45,18 +45,18 @@ return {
         VehiclePopulation = 0,
         ParkedPopulation = 0
     },
-    
+
     ClearBoats = true,
     ClearTrains = true,
     ClearGarabageTrucks = true,
     ClearCops = true,
 
     DisableGTAradio = true,
-    DisablePlayerRewards = true,
+    DisablePedLosingProps = true,
     DisableDispatchComponents = true,
+    DisableIdleCamera = true,
+    DisableVehicleDistantlights = true,
 
     CustomizeVehicleDamage = true,
     VehicleDamagePerHit = 20
-
-
 }

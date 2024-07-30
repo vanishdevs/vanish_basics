@@ -45,7 +45,10 @@ local function performBasics()
     SetCreateRandomCops(not Config.ClearCops)
     SetCreateRandomCopsNotOnScenarios(not Config.ClearCops)
     SetCreateRandomCopsOnScenarios(not Config.ClearCops)
-        
+
+    DisableIdleCamera(Config.DisableIdleCamera)
+    DisableVehicleDistantlights(Config.DisableVehicleDistantlights)
+
     while true do
         playerPed = cache.ped
         playerId = cache.playerId
@@ -54,15 +57,15 @@ local function performBasics()
             SetVehicleRadioEnabled(GetVehiclePedIsIn(playerPed), false)
         end
 
-        if Config.DisablePlayerRewards then
-            DisablePlayerVehicleRewards(playerId)
+        if Config.DisablePedLosingProps then
+            SetPedCanLosePropsOnDamage(playerPed, false, 0)
         end
         
         if Config.CustomizeVehicleDamage then
             N_0x4757f00bc6323cfe(-1553120962, Config.VehicleDamagePerHit)
         end
 
-        Wait(0)
+        Wait(1000)
     end
 end
 
