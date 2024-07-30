@@ -1,3 +1,5 @@
+local Config = lib.load('shared/sh_main')
+
 local function performBasics()
     
     if Config.EnableCustomAbilities then
