@@ -3,7 +3,7 @@ local isIdlePlaying = false
 local lastActionTime = 0
 local idleTimeout = 30000
 
-local performIdleFunctions(EnableCustomIdle)
+local function performIdleFunctions(EnableCustomIdle)
     while EnableCustomIdle do
         local playerPed = cache.ped
 
