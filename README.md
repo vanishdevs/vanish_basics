@@ -10,6 +10,7 @@ This resource offers essential scripts that can be toggled for enhanced server f
 
 - **General Cleanup**: Removes unnecessary in-game entities.
 - **Anti-Theft Protection**: Prevents theft of specified vehicles.
+- **Anti-Pistol Whip**: Prevents pistol whipping players with GTA weapons.
 - **Custom Blips**: Adds customizable map blips.
 - **Discord Status Integration**: Shows server status on Discord.
 - **Custom Idle Animations**: Configures player idle animations (currently only done for `mp_m_freemode_01`).
