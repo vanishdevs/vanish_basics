@@ -3,6 +3,7 @@ local Config = lib.load('shared/sh_main')
 local function performBasics()
     local playerPed = cache.ped
     local playerId = cache.playerId
+    local pedindex = {}
 
     if Config.EnableCustomAbilities then
         StatSetInt('MP0_SHOOTING_ABILITY', Config.Abilities.Shooting, true)
@@ -50,6 +51,9 @@ local function performBasics()
     DisableVehicleDistantlights(Config.DisableVehicleDistantlights)
 
     while true do
+        local pedIterator, currentPed = FindFirstPed()
+        local hasFinished = false
+
         playerPed = cache.ped
         playerId = cache.playerId
 
@@ -64,6 +68,23 @@ local function performBasics()
         if Config.CustomizeVehicleDamage then
             N_0x4757f00bc6323cfe(-1553120962, Config.VehicleDamagePerHit)
         end
+
+        if Config.DisableNPCWeaponDrops then
+            repeat 
+                if not IsEntityDead(currentPed) then
+                    pedindex[currentPed] = {}
+                end
+                hasFinished, currentPed = FindNextPed(pedIterator)
+            until not hasFinished
+
+            EndFindPed(pedIterator)
+
+            for _, ped in pairs(pedindex) do
+                if ped then
+                    SetPedDropsWeaponsWhenDead(ped, false) 
+                end
+            end
+        end 
 
         Wait(1000)
     end
