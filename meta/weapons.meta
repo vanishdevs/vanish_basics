@@ -2848,7 +2848,7 @@
           <AttachPoints />
           <GunFeedBone />
           <TargetSequenceGroup />
-          <WeaponFlags>AllowMeleeBlock CarriedInHand ArmourPenetrating CanLockonOnFoot CanLockonInVehicle CanFreeAim UsableOnFoot UsableUnderwater UsableClimbing UsableInCover DisableLeftHandIkInCover DoesRevivableDamage  AllowMeleeIntroAnim HasLowCoverSwaps NoWheelStats QuitTransitionToIdleIntroOnWeaponChange DisableFPSScope AttachFPSLeftHandIKToRight UseFPSAimIK UseFPSSecondaryMotion</WeaponFlags>
+          <WeaponFlags>AllowMeleeBlock CarriedInHand ArmourPenetrating CanLockonOnFoot CanLockonInVehicle CanFreeAim UsableOnFoot UsableUnderwater UsableClimbing UsableInCover DisableLeftHandIkInCover DoesRevivableDamage AllowCloseQuarterKills AllowMeleeIntroAnim HasLowCoverSwaps NoWheelStats QuitTransitionToIdleIntroOnWeaponChange DisableFPSScope AttachFPSLeftHandIKToRight UseFPSAimIK UseFPSSecondaryMotion</WeaponFlags>
           <TintSpecValues ref="TINT_DEFAULT" />
           <FiringPatternAliases ref="NULL" />
           <ReloadUpperBodyFixupExpressionData ref="default" />
