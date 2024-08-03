@@ -13,7 +13,7 @@ This resource offers essential scripts that can be toggled for enhanced server f
 - **Anti-Pistol Whip**: Prevents pistol whipping players with GTA weapons.
 - **Custom Blips**: Adds customizable map blips.
 - **Discord Status Integration**: Shows server status on Discord.
-- **Custom Idle Animations**: Configures player idle animations (currently only done for `mp_m_freemode_01`).
+- **Custom Idle Animations**: Configures player idle animations (Works for `mp_m_freemode_01` & `mp_f_freemode_01`).
 - **Custom Abilities & Movement**: Adjusts player abilities and movement settings.
 - **HUD Component Customization**: Manages HUD components and population budgets.
 - **Random Vehicle & NPC Control**: Control population budjects, random boats, trucks, etc.
