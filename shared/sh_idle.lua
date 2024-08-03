@@ -2,9 +2,16 @@ return {
     EnableCustomIdle = false,
 
     AnimSettings = {
-        Dict = 'move_m@generic_idles@std',
-        Anim = 'idle',
-        Flag = 49
+        Male = {
+            Dict = 'move_m@generic_idles@std',
+            Anim = 'idle',
+            Flag = 49
+        },
+        Female = {
+            Dict = 'move_f@generic_idles@std',
+            Anim = 'idle',
+            Flag = 49
+        }
     }
     
 }
