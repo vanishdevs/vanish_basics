@@ -1,0 +1,66 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  create-release:
+    name: Build and Create Tagged release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install archive tools
+        run: sudo apt install zip
+
+      - name: Checkout source code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Get variables
+        id: get_vars
+        run: |
+          echo '::set-output name=SHORT_SHA::$(git rev-parse --short HEAD)'
+          echo '::set-output name=DATE::$(date +'%D')'
+
+      - name: Bump manifest version
+        run: node .github/actions/bump-manifest-version.js
+        env:
+          TGT_RELEASE_VERSION: ${{ github.ref_name }}
+
+      - name: Push manifest change
+        uses: EndBug/add-and-commit@v8
+        with:
+          add: fxmanifest.lua
+          push: true
+          author_name: Manifest Bumper
+          author_email: 41898282+github-actions[bot]@users.noreply.github.com
+          message: "chore: bump manifest version to ${{ github.ref_name }}"
+
+      - name: Update tag ref
+        uses: EndBug/latest-tag@latest
+        with:
+          tag-name: ${{ github.ref_name }}
+
+      - name: Bundle files
+        run: |
+          mkdir -p ./temp/vanish_basics
+          cp ./{README.md,LICENSE,fxmanifest.lua} ./temp/vanish_basics
+          cp -r ./{client,meta,server,shared,stream} ./temp/vanish_basics
+          cd ./temp && zip -r ../vanish_basics.zip ./vanish_basics
+
+      - name: Create Release
+        uses: "marvinpinto/action-automatic-releases@v1.2.1"
+        id: auto_release
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          title: "${{ env.RELEASE_VERSION }}"
+          prerelease: false
+          files: vanish_basics.zip
+
+        env:
+          CI: false
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
