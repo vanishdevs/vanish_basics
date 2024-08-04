@@ -39,6 +39,12 @@ local function performBasics()
         SetNumberOfParkedVehicles(Config.Budgets.ParkedPopulation)
     end
 
+    if Config.CalmAI then
+        for i = 1, #Config.Relationships do
+            SetRelationshipBetweenGroups(1, Config.Relationships[i], `PLAYER`)
+        end
+    end
+
     SetRandomBoats(not Config.ClearBoats)
     SetRandomTrains(not Config.ClearTrains)
     SetGarbageTrucks(not Config.ClearGarabageTrucks)
