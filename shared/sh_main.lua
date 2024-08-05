@@ -39,11 +39,41 @@ return {
         [22] = true
     },
 
+    SuppressCarModels = true,
+    SuppressedCarModels = {
+        `SHAMAL`,
+        `LUXOR`,
+        `LUXOR2`,
+        `JET`,
+        `LAZER`,
+        `TITAN`,
+        `BARRACKS`,
+        `BARRACKS2`,
+        `CRUSADER`,
+        `RHINO`,
+        `AIRTUG`,
+        `RIPLEY`,
+    },
+
     AdjustPopulationBudgets = true,
     Budgets = {
         PedPopulation = 0,
         VehiclePopulation = 0,
         ParkedPopulation = 0
+    },
+
+    DisableScenerios = true,
+    Scenerios = {
+        Types = {
+            'WORLD_VEHICLE_MILITARY_PLANES_SMALL',
+            'WORLD_VEHICLE_MILITARY_PLANES_BIG',
+        },
+        Groups = {
+            2017590552,
+            2141866469,
+            1409640232,
+            'ng_planes',
+        }
     },
 
     CalmAI = true,

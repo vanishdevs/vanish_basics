@@ -90,7 +90,22 @@ local function performBasics()
                     SetPedDropsWeaponsWhenDead(ped, false) 
                 end
             end
-        end 
+        end
+        
+        if Config.DisableScenerios then
+            for i = 1, #Config.Scenerios.Groups do
+                SetScenarioGroupEnabled(Config.Scenerios.Groups[i], false)
+            end
+            for i = 1, #Config.Scenerios.Types do
+                SetScenarioTypeEnabled(Config.Scenerios.Types[i], false)
+            end
+        end
+
+        if Config.SuppressCarModels then
+            for i = 1, #Config.SuppressedCarModels do
+                SetVehicleModelIsSuppressed(Config.SuppressedCarModels[i], true)
+            end
+        end
 
         Wait(1000)
     end
