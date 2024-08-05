@@ -45,6 +45,10 @@ local function performBasics()
         end
     end
 
+    if Config.DisableWantedLevel then
+        SetMaxWantedLevel(0)
+    end
+
     SetRandomBoats(not Config.ClearBoats)
     SetRandomTrains(not Config.ClearTrains)
     SetGarbageTrucks(not Config.ClearGarabageTrucks)

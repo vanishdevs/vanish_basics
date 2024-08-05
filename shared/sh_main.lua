@@ -98,6 +98,7 @@ return {
     ClearGarabageTrucks = true,
     ClearCops = true,
 
+    DisableWantedLevel = true,
     DisableGTAradio = true,
     DisablePedLosingProps = true,
     DisableDispatchComponents = true,
