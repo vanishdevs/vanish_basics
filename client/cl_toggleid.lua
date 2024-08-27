@@ -19,8 +19,9 @@ local function GetNeareastPlayers()
 	return players_clean
 end
 
-CreateThread(function()
-    while Config.EnableToggleId do
+-- @param EnableToggleId (boolean) Enable or disable the toggle id in while loop
+local function performToggleId(EnableToggleId)
+    while EnableToggleId do
         if showID then              
             local nearbyPlayers = GetNeareastPlayers()
             for k, v in pairs(nearbyPlayers) do
@@ -37,7 +38,9 @@ CreateThread(function()
 
         Wait(0)
     end
-end)
+end
+
+CreateThread(function() performToggleId(Config.EnableToggleId) end)
 
 if Config.EnableToggleId then
     RegisterCommand('+' .. Config.CommandName, function() showID = true if Config.SoundSettings.play then PlaySoundFrontend(Config.SoundSettings.soundId, Config.SoundSettings.audioName, Config.SoundSettings.audioRef, true) end end, false)
