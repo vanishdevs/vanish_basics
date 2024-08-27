@@ -5,9 +5,12 @@ local notificationShown = false
 local function IsModelInTable(model, hashTable)
     for _, value in ipairs(hashTable) do
         if model == value then
+            Debug('IsModelInTable: Model found in table ' .. model)
             return true
         end
     end
+
+    Debug('IsModelInTable: Model not found in table')
     return false
 end
 
@@ -26,8 +29,10 @@ local function antiTheft(EnableAntiTheft, RestrictedVehicles)
                     notificationShown = true
                 end
                 TaskLeaveVehicle(playerPed, playerVehicle, 0)
+                Debug('AntiTheft: Player has been kicked out of the vehicle')
             else
                 notificationShown = false
+                Debug('AntiTheft: Player is allowed to sit in the vehicle')
             end
         end
 

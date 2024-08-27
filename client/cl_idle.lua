@@ -5,6 +5,7 @@ local lastActionTime = 0
 local idleTimeout = 30000
 local controlKeys = { 32, 33, 34, 35 }
 
+-- @param modelType (string) The model type to get the animation settings for
 local function getAnimationSettings(modelType)
     local animSettings = Config.AnimSettings[modelType]
     return animSettings.Dict, animSettings.Anim, animSettings.Flag
@@ -19,6 +20,7 @@ local function controlPressed()
     return false
 end
 
+-- @param EnableCustomIdle (boolean) Enable or disable the custom idle in while loop
 local function performIdleFunctions(EnableCustomIdle)
     local maleAnimDict, maleAnim, maleAnimFlag = getAnimationSettings('Male')
     local femaleAnimDict, femaleAnim, femaleAnimFlag = getAnimationSettings('Female')
@@ -32,14 +34,16 @@ local function performIdleFunctions(EnableCustomIdle)
         local determineModel = playerModel == `mp_m_freemode_01` and `mp_m_freemode_01` or playerModel == `mp_f_freemode_01` and `mp_f_freemode_01` or false
         local mainAnimDict, mainAnim, mainAnimFlag
 
-        
-        if not determineModel then 
+        if not determineModel then
+            Debug('performIdleFunctions: Proper player model not found, waiting...' .. '\nCurrent model: ' .. playerModel)
             Wait(5000)
         else
             if determineModel == `mp_m_freemode_01` then
                 mainAnimDict, mainAnim, mainAnimFlag = maleAnimDict, maleAnim, maleAnimFlag
+                Debug('performIdleFunctions: Player model is male, successfully loaded needed variables')
             else
                 mainAnimDict, mainAnim, mainAnimFlag  = femaleAnimDict, femaleAnim, femaleAnimFlag
+                Debug('performIdleFunctions: Player model is female, successfully loaded needed variables')
             end
         end
 
@@ -51,6 +55,7 @@ local function performIdleFunctions(EnableCustomIdle)
             if GetGameTimer() - lastActionTime > idleTimeout and not isIdlePlaying then
                 TaskPlayAnim(playerPed, mainAnimDict, mainAnim, 8.0, -8, -1, mainAnimFlag, 0, false, false, false)
                 isIdlePlaying = true
+                Debug('performIdleFunctions: Idle animation started')
             end
         end
 

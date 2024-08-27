@@ -12,6 +12,7 @@ local function DiscordStatus(EnableDiscordStatus)
         SetDiscordRichPresenceAssetText('[' .. cache.serverId .. '] ' .. name)
         SetDiscordRichPresenceAction(0, "Discord", Config.DiscordInvite)
         SetDiscordRichPresenceAction(1, "Store", Config.StoreLink)
+        Debug('DiscordStatus: Discord status updated')
         Wait(60000)
     end
 end

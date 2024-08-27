@@ -1,4 +1,6 @@
 return {
+    Debug = false,
+
     EnableCustomAbilities = true,
     Abilities = {
         Shooting = 120,

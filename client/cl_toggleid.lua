@@ -30,6 +30,7 @@ local function performToggleId(EnableToggleId)
                 if Config.DisableAllControls then
                     DisableAllControlActions(0)
                     EnableControlAction(0, 166, true)
+                    Debug('PerformToggleId: Disabling all controls')
                 end
 
                 Draw3DText(x, y, z + 1.1, v.playerId, v.player)
@@ -46,4 +47,5 @@ if Config.EnableToggleId then
     RegisterCommand('+' .. Config.CommandName, function() showID = true if Config.SoundSettings.play then PlaySoundFrontend(Config.SoundSettings.soundId, Config.SoundSettings.audioName, Config.SoundSettings.audioRef, true) end end, false)
     RegisterCommand('-' .. Config.CommandName, function() showID = false end, false)
     RegisterKeyMapping('+' .. Config.CommandName, 'Show IDs above peoples head', 'keyboard', Config.Keybind)
+    Debug('Command ' .. Config.CommandName .. ' has been registered and its keybind has been set to ' .. Config.Keybind)
 end
