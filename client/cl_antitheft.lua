@@ -2,6 +2,8 @@ local Config = lib.load('shared/sh_antitheft')
 
 local notificationShown = false
 
+---@param model (number) The model to check if it is in the table
+---@param hashTable (table) The table to check if the model is in
 local function IsModelInTable(model, hashTable)
     for _, value in ipairs(hashTable) do
         if model == value then

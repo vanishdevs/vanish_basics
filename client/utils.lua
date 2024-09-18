@@ -1,8 +1,8 @@
--- @param x (number) The x coordinate.
--- @param y (number) The y coordinate.
--- @param z (number) The z coordinate.
--- @param text (string) The text to display.
--- @param player (number) The player id.
+---@param x (number) The x coordinate.
+---@param y (number) The y coordinate.
+---@param z (number) The z coordinate.
+---@param text (string) The text to display.
+---@param player (number) The player id.
 function Draw3DText(x, y, z, text, player)
     local onScreen, _x, _y = World3dToScreen2d(x, y, z)
     if onScreen then

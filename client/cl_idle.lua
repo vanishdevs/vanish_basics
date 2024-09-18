@@ -5,12 +5,14 @@ local lastActionTime = 0
 local idleTimeout = 30000
 local controlKeys = { 32, 33, 34, 35 }
 
--- @param modelType (string) The model type to get the animation settings for
+---@param modelType (string) The model type to get the animation settings for
+---@return (string, string, number) The animation dictionary, animation name, and animation flag
 local function getAnimationSettings(modelType)
     local animSettings = Config.AnimSettings[modelType]
     return animSettings.Dict, animSettings.Anim, animSettings.Flag
 end
 
+---@return (boolean) Check if the control keys are pressed
 local function controlPressed()
     for _, key in ipairs(controlKeys) do
         if IsControlPressed(0, key) then
@@ -20,7 +22,7 @@ local function controlPressed()
     return false
 end
 
--- @param EnableCustomIdle (boolean) Enable or disable the custom idle in while loop
+---@param EnableCustomIdle (boolean) Enable or disable the custom idle
 local function performIdleFunctions(EnableCustomIdle)
     local maleAnimDict, maleAnim, maleAnimFlag = getAnimationSettings('Male')
     local femaleAnimDict, femaleAnim, femaleAnimFlag = getAnimationSettings('Female')

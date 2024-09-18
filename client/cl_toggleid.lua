@@ -1,6 +1,7 @@
 local Config = lib.load('shared/sh_toggleid')
 local showID = false
 
+---@return (table) The nearest players
 local function GetNeareastPlayers()
 	local playerPed = cache.ped
 	local players_clean = {}
@@ -19,7 +20,7 @@ local function GetNeareastPlayers()
 	return players_clean
 end
 
--- @param EnableToggleId (boolean) Enable or disable the toggle id in while loop
+---@param EnableToggleId (boolean) Enable or disable the toggle id in while loop
 local function performToggleId(EnableToggleId)
     while EnableToggleId do
         if showID then              

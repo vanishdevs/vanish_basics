@@ -1,5 +1,6 @@
 local Config = lib.load('shared/sh_blips')
 
+---@param EnableBlips (boolean) Enable or disable the custom blips
 local function createCustomBlips(EnableBlips, BlipsTable)
     if EnableBlips then
         for _, blipInfo in pairs(BlipsTable) do
