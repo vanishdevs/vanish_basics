@@ -1,4 +1,4 @@
-local Config = lib.load('shared/sh_idle')
+local Config = lib.load('shared.sh_idle')
 
 local isIdlePlaying = false
 local lastActionTime = 0

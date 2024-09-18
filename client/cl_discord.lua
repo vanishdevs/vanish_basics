@@ -1,4 +1,4 @@
-local Config = lib.load('shared/sh_discord')
+local Config = lib.load('shared.sh_discord')
 
 ---@param EnableDiscordStatus (boolean) Enable or disable the discord status
 local function DiscordStatus(EnableDiscordStatus)

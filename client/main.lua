@@ -1,4 +1,4 @@
-local Config = lib.load('shared/sh_main')
+local Config = lib.load('shared.sh_main')
 
 local function performBasics()
     local playerPed = cache.ped

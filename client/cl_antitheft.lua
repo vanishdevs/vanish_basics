@@ -1,4 +1,4 @@
-local Config = lib.load('shared/sh_antitheft')
+local Config = lib.load('shared.sh_antitheft')
 
 local notificationShown = false
 

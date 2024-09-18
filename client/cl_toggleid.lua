@@ -1,4 +1,4 @@
-local Config = lib.load('shared/sh_toggleid')
+local Config = lib.load('shared.sh_toggleid')
 local showID = false
 
 ---@return (table) The nearest players
