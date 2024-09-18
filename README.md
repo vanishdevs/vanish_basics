@@ -9,6 +9,8 @@ This resource offers essential scripts that can be toggled for enhanced server f
 ### Features
 
 - **General Cleanup**: Removes unnecessary in-game entities.
+- **Hands Up**: Allow players to raise their hands with a keybind.
+- **Toggle ID**: See player IDs by pressing a keybind.
 - **Anti-Theft Protection**: Prevents theft of specified vehicles.
 - **Anti-Pistol Whip**: Prevents pistol whipping players with GTA weapons.
 - **Custom Blips**: Adds customizable map blips.
