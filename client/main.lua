@@ -74,10 +74,6 @@ local function performBasics()
         if Config.DisablePedLosingProps then
             SetPedCanLosePropsOnDamage(playerPed, false, 0)
         end
-        
-        if Config.CustomizeVehicleDamage then
-            N_0x4757f00bc6323cfe(-1553120962, Config.VehicleDamagePerHit)
-        end
 
         if Config.DisableNPCWeaponDrops then
             repeat 

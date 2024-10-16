@@ -106,8 +106,5 @@ return {
     DisableDispatchComponents = true,
     DisableIdleCamera = true,
     DisableVehicleDistantlights = true,
-    DisableNPCWeaponDrops = true,
-
-    CustomizeVehicleDamage = true,
-    VehicleDamagePerHit = 20
+    DisableNPCWeaponDrops = true
 }
