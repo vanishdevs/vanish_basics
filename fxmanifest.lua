@@ -1,7 +1,7 @@
 fx_version 'adamant'
 game 'gta5'
 lua54 'yes'
-version '1.0.3'
+version '1.0.4'
 
 author 'vanishdev'
 description 'Basic Server Management System with Customization Options'
